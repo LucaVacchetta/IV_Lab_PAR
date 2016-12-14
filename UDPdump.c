@@ -191,7 +191,7 @@ void packet_handler(u_char *param, const struct pcap_pkthdr *header, const u_cha
 	char request[5];
 	char stringaMax[1500];
 	char* line;
-	char headerHttp[60], valueHeaderHttp[300];
+	char headerHttp[60], valueHeaderHttp[2500];
 
 	/*
 	* unused parameters
@@ -249,6 +249,7 @@ void packet_handler(u_char *param, const struct pcap_pkthdr *header, const u_cha
 										i = 0;
 										if (strncmp(headerHttp, "Host:", 5) == 0) {
 											printf("%s%s", valueHeaderHttp, url);
+											break;
 										}
 										memset(stringaMax, 0, 1500);
 									}
